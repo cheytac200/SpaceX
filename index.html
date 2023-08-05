@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./main.css">
     <link rel="stylesheet" href="./stars.css">
+    <link rel="icon" href="./assets/img/spacex-icon.jpeg">
 </head>
 <body>
     <div class="wrapper">
@@ -16,40 +17,41 @@
             <div class="header__logo">
                 <img src="./assets/img/logo.svg" alt="logo-spaceX">
             </div>
-
+            
             <div class="header__nav">
                 <ul>
-                    <li>Falcon 9</li>
-                    <li>Falcon Heavy</li>
-                    <li>Dragon</li>
-                    <li>Updates</li>
+                    <li><a href="#">Falcon 9</a></li>
+                    <li><a href="#">Falcon Heavy</a></li>
+                    <li><a href="#">Dragon</a></li>
+                    <li><a href="#">Updates</a></li>
                 </ul>
             </div>
 
             <div class="header__links">
                 <ul>
-                    <li>About</li>
-                    <li>Gallery</li>
-                    <li>Shop</li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Shop</a></li>
                 </ul>
             </div>
         </div>    
 
         <div class="main">
-            <div class="title">
+            <div class="comet"></div>
+            <div data-speed=".8" class="title">
                 <h1>Falcon Heavy</h1>
                 <p>The most powerful operational rocket in the world by a factor of two</p>
             </div>
 
-            <div class="earth">
+            <div data-speed=".9" class="earth" >
                 <img src="./assets/img/imgEarth.png" alt="imgEarth">
             </div>
             
             <div class="falcon-description">
                 <div class="description-container">
-                    <h2>FALCON HEAVY OVERVIEW</h2>
+                    <h2 class="item-gsap">FALCON HEAVY OVERVIEW</h2>
                         <div>
-                            <ul>
+                            <ul class="item-gsap">
                                 <li>HEIGHT</li>
                                 <li>DIAMETER</li>
                                 <li>MASS</li>
@@ -57,7 +59,7 @@
                                 <li>PAYLOAD TO GTO</li>
                                 <li>PAYLOAD TO MARS</li>
                             </ul>
-                            <ul>
+                            <ul class="item-gsap">
                                 <li>70 m / <span>229.6 ft</span></li>
                                 <li>12.2 m / <span>39.9 ft</span></li>
                                 <li>1,420,788 kg / <span>3,125,735 lb</span></li>
@@ -67,7 +69,7 @@
                             </ul>
                         </div>
                         
-                        <div>
+                        <div class="item-gsap">
                             <h2>UNMATCHED PERFORMANCE</h2>
                             <p>With more than 5 million pounds of thrust at liftoff, Falcon Heavy is the most capable rocket flying. By comparison, the liftoff thrust of the Falcon Heavy equals approximately eighteen 747 aircraft at full power. Falcon Heavy can lift the equivalent of a fully loaded 737 jetliner—complete with passengers, luggage and fuel—to orbit.</p>
                         </div> 
@@ -79,7 +81,7 @@
             
         </div>
         
-        <div class="footer">
+        <div data-speed="0.9" class="footer">
             <img src="./assets/img/logo.svg" alt="logo-1">
             <ul>
                 <li><a href="#">Twitter</a></li>
@@ -88,13 +90,17 @@
                 <li><a href="#">Flickr</a></li>
                 <li><a href="#">LinkedIN</a></li>
                 <li><a href="#">Privacy</a></li>
-                <li<a href="#">Policy</a><li>
+                <li><a href="#">Policy</a></li>
             </ul>
             <p>For additional questions, contact rideshare@spacex.com</p>
             <button>Contact us</button>
         </div>
     </div>
-    <script type="application/javascript" src="./parallax.js"></script>
+	<script src="libs/gsap/gsap.min.js"></script>
+	<script src="libs/gsap/ScrollTrigger.min.js"></script>
+	<script src="libs/gsap/ScrollSmoother.min.js"></script>
+
     <script type="application/javascript" src="./stars.js"></script>
+    <script src="./app.js"></script>
 </body>
 </html>

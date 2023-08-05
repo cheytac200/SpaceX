@@ -35,3 +35,95 @@
         opacity: 0.1;
     }
 }
+
+ .comet {
+  width: 6px;
+  height: 6px;
+  background-color: rgba(#fff, .6);
+  box-shadow: 0 0 40px 0 #EDCDA3, 0 0 20px 0 #fff, inset 0 0 8px rgba(#fff,.6);
+  top: 0;
+  left: 80%;
+  opacity: 0.3;
+  transform: rotate(-45deg) translate(0,-50px);
+  animation: comet 6s infinite;
+  &:after {
+    content: '';
+    width: 20vw;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgba(#fff, .1);
+    box-shadow: 0 0 20px rgba(#EDCDA3, .4);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+
+:root {
+  --comet-size: 6px;
+  --comet-color: rgba(255, 255, 255, 0.6);
+  --comet-glow-color: rgba(255, 255, 255, 0.1);
+  --comet-glow-shadow: 0 0 20px rgba(237, 205, 163, 0.4);
+  --comet-trail-color: rgba(255, 255, 255, 0.6);
+  --comet-trail-shadow: 0 0 40px 0 rgba(237, 205, 163, 0.8), 0 0 20px 0 #fff, inset 0 0 8px rgba(255, 255, 255, 0.6);
+  --comet-trail-opacity: 0.3;
+  --comet-animation-duration: 6s;
+  --comet-glow-animation-duration: calc(var(--comet-animation-duration) * 0.2);
+}
+
+/* COMET */
+/* MockUP */
+.comet {
+  width: var(--comet-size);
+  height: var(--comet-size);
+  background-color: var(--comet-color);
+  box-shadow: var(--comet-trail-shadow);
+  border-radius: 50%;
+  top: 0;
+  left: 80%;
+  opacity: var(--comet-trail-opacity);
+  transform: rotate(-45deg) translate(0, -50px);
+  animation: comet var(--comet-animation-duration) infinite;
+  position: absolute;
+}
+.comet::after {
+    content: '';
+    width: 20vw;
+    height: var(--comet-size);
+    border-radius: 50%;
+    background-color: var(--comet-glow-color);
+    box-shadow: var(--comet-glow-shadow);
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: cometGlow var(--comet-glow-animation-duration) infinite;
+  }
+
+
+@keyframes comet {
+  0% {
+    transform: rotate(-45deg) translateX(0);
+    opacity: var(--comet-trail-opacity);
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    transform: rotate(-45deg) translateX(-100vw);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(-45deg) translateX(-100vw);
+    opacity: 0;
+  }
+}
+
+@keyframes cometGlow {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}

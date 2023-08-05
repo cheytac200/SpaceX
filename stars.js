@@ -53,7 +53,7 @@ class Stars {
 
     if (!currentContainer) {
       currentContainer = document.createElement('div')
-      currentContainer.id = 'stars-container'
+      currentContainer.id = container
       document.body.appendChild(currentContainer)
     }
 
@@ -88,7 +88,7 @@ class Stars {
 
   createStar(posX, posY) {
     const randSize = randomize(this.minSize, this.maxSize)
-    const randAnimDelay = randomize(0, 6)
+    const randAnimDelay = randomize(0, this.maxAnimationDelay)
 
     return new Star({
       size: randSize,
@@ -98,7 +98,7 @@ class Stars {
     })
   }
 
-  isCoordinateValid(x, y) {
+  isCoordinateValid(x, y) { 
     for(const element of this.stars) {
       const distanceToElement = element.distance(x, y)
       if (distanceToElement < this.minDistance) {
@@ -121,3 +121,24 @@ new Stars({
   maxSize: 6,
   maxAnimationDelay: 6,
 })
+
+// create Comet
+// fisrt ver. (for test)
+const wH = window.innerHeight;
+const wW = window.innerWidth;
+const starsContainer = document.querySelector('.stars-container');
+
+const createComet = () => {
+  const comet = document.createElement('div');
+  comet.classList.add('comet');
+  comet.style.top = `${Math.random() * wH}px`;
+  comet.style.left = `${Math.random() * wW}px`;
+  starsContainer.appendChild(comet);
+  setTimeout(() => comet.remove(), 6000);
+};
+
+const generateComets = () => {
+  setInterval(createComet, 5000);
+};
+
+generateComets();
